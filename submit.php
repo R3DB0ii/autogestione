@@ -1,9 +1,9 @@
 <?php
 // Connessione al database
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "nome_database";
+$servername = "sql11.freesqldatabase.com";
+$username = "sql11680864";
+$password = "DtLGIdQCHg";
+$dbname = "sql11680864";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,12 +13,13 @@ if ($conn->connect_error) {
 }
 
 // Recupero dei dati dal modulo HTML
+$nome = $_POST['nome'];
 $corso = $_POST['corso'];
 $giorno = $_POST['giorno'];
-$ora = $_POST['ora'];
+$fascia = $_POST['fascia'];
 
 // Verifica del limite di iscrizioni
-$limit = 10; // Limite di iscrizioni per ogni corso
+$limit = 25; // Limite di iscrizioni per ogni corso
 
 $sql = "SELECT COUNT(*) as count FROM iscrizioni WHERE corso='$corso'";
 $result = $conn->query($sql);
@@ -29,7 +30,7 @@ if ($count >= $limit) {
     echo "Il corso ha raggiunto il limite di iscrizioni.";
 } else {
     // Inserimento dei dati nel database
-    $sql = "INSERT INTO iscrizioni (corso, giorno, ora) VALUES ('$corso', '$giorno', '$ora')";
+    $sql = "INSERT INTO iscrizioni (nome, corso, giorno, fascia) VALUES ('$nome', '$corso', '$giorno', '$fascia')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Iscrizione effettuata con successo.";
