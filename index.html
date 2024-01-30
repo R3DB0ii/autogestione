@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iscrizione Corso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Iscrizione al Corso</h2>
+    <form action="submit.php" method="POST">
+        <label for="corso">Corso:</label>
+        <select name="corso" id="corso">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        <label for="giorno">Giorno:</label>
+        <input type="date" name="giorno" id="giorno">
+        <label for="ora">Ora:</label>
+        <input type="time" name="ora" id="ora">
+        <input type="submit" value="Iscriviti">
+    </form>
+</body>
+</html>
